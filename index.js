@@ -68,12 +68,18 @@ function extractTextInParentheses(str) {
   // Повернення масиву вилучених текстів.
   const regex = /\((.*?)\)/g;
   const hasMatch = str.matchAll(regex);
+  /* // Створення масиву зі знайденими текстами.
+        const extractedTexts = Array.from(matches, (match) => match[1]);
+        
+  // Повернення масиву вилучених текстів.
+        return extractedTexts;
+*/
+
   const arr = [];
 
   for (const match of hasMatch) {
     arr.push(match[1]);
   }
-
   return arr;
 }
 
@@ -139,6 +145,9 @@ function findWordOccurrences(str, word) {
   while ((match = regex.exec(str))) {
     matches.push(match.index);
   }
+  /* // Оновлення lastIndex,присвоєюмо йому значення  match.index + 1, щоб продовжити пошук з наступного символу
+            regex.lastIndex = match.index + 1;
+  */
   return matches;
 }
 
@@ -228,6 +237,27 @@ function checkFlags(regex) {
   // Отримуємо вихідний код регулярного виразу за допомогою властивості `source`.
   // Додаємо вихідний код до масиву
   // Повертаємо масив використаних флагів.
+
+  /*          // Створюємо масив для зберігання використаних флагів.
+          const usedFlags = [];
+        
+          // Перевіряємо, чи використовується флаг 'i' (ignoreCase) у регулярному виразі.
+          const hasIgnoreCase = regex.ignoreCase;
+        
+          // Додаємо флаг ignoreCase до масиву, якщо він використовується.
+          if (hasIgnoreCase) {
+            usedFlags.push("ignoreCase");
+          }
+        
+          // Отримуємо вихідний код регулярного виразу за допомогою властивості `source`.
+          const sourceCode = regex.source;
+        
+          // Додаємо вихідний код до масиву
+          usedFlags.push(sourceCode);
+        
+          // Повертаємо масив використаних флагів.
+          return usedFlags;
+*/
 
   const flags = [];
 
